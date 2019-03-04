@@ -5,17 +5,18 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pushdata-io",
-    version="0.0.1",
+    version="0.0.2",
     author="Ragnar Lonn",
     author_email="hello@pushdata.io",
-    description="Client library for pushdata.io",
+    description="Python client library for pushdata.io",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/pushdata-io/Python",
     packages=setuptools.find_packages(),
     classifiers=[
+        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    ],
+    ]
 )
