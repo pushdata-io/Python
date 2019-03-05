@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pushdata-io",
-    version="0.0.2",
+    version="0.0.3",
     author="Ragnar Lonn",
     author_email="hello@pushdata.io",
     description="Python client library for pushdata.io",
