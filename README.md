@@ -23,20 +23,32 @@ pd.send(4711)
 pd.send(4711, tsname="myothertimeseries")
 
 # Retrieve all data from the time series
-tsdata = pd.recv()
+response = pd.recv()
+
+# Or from another time series
+response = pd.recv(tsname="anothertimeseries")
 
 # Retrieve data timestamped during the last week
 import datetime
 one_week_ago = datetime.datetime.now() - datetime.timedelta(days=7)
-tsdata = pd.recv(fromtime=one_week_ago)
+response = pd.recv(fromtime=one_week_ago)
 
 # Retrieve data for one 24-hour period, one week ago
 import datetime
 one_week_ago = datetime.datetime.now() - datetime.timedelta(days=7)
 one_week_ago_plus_24h = one_week_ago + datetime.timedelta(days=1)
-tsdata = pd.recv(fromtime=one_week_ago, totime=one_week_ago_plus_24h)
+response = pd.recv(fromtime=one_week_ago, totime=one_week_ago_plus_24h)
 
+#
 # Print time series data
+#
+# We get a Python Requests response object from recv(), which 
+# includes response code, raw HTTP response body, and more.
+# We use the .json() method to parse the body text as JSON
+# and get a dictionary:
+tsdata = response.json()
+#
+# And then we print stuff:
 print("Timeseries name: " + tsdata["name"])
 print("First point recorded at   : " + tsdata["first"])    # timestamp of first point in time series
 print("Last point recorded at    : " + tsdata["last"])     # timestamp of last point in time series
@@ -47,23 +59,26 @@ for point in tsdata["points"]:
     print("Time=%s value=%f" % (point["time"], point["value"]))
 
 #
-# tsdata (returned from pd.recv()) is a dictionary that looks like this:
+# tsdata (the decoded JSON response from pushdata.io) is 
+# a dictionary that looks like this:
 #  {
 #     "name": "mytimeseries",
-#     "first": datetime.datetime,
-#     "last": datetime.datetime,
+#     "first": "2019-02-15T07:43:31.546805Z",
+#     "last": "2019-03-05T11:21:06.20951Z",
 #     "total": 482,
 #     "returned: 482,
 #     "offset": 0,
 #     "limit": 10000,
 #     "points": [
 #        {
-#           "time": datetime.datetime,
+#           "time": "2019-02-15T07:43:31.546805Z",
 #           "value": 4711.0
 #        },
 #        ...
 #     ]
 #  }
+#
+# See https://speca.io/ragnarlonn/pushdata-io#TimeSeriesData
 #
 ```
 
