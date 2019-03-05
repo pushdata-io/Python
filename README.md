@@ -8,7 +8,7 @@ This library allows you to easily store and retrieve time series data using the 
 
 ## Getting started
 
-You can start storing data on [pushdata.io](https://pushdata.io) immediately, without even registering an account there. Just install this package and write three lines of code, like this:
+You can start storing data on [pushdata.io](https://pushdata.io) _immediately_, without even registering an account there. Just install this package and write three lines of code, like this:
 
 ```python
 import pushdata
