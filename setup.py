@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pushdata-io",
-    version="0.0.3",
+    version="0.0.6",
     author="Ragnar Lonn",
     author_email="hello@pushdata.io",
     description="Python client library for pushdata.io",
@@ -13,6 +13,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/pushdata-io/Python",
     packages=setuptools.find_packages(),
+    install_requires=[
+          'requests'
+    ],
     classifiers=[
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
