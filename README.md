@@ -6,6 +6,19 @@ This library allows you to easily store and retrieve time series data using the 
 
 `pip install pushdata-io`
 
+## Getting started
+
+You can start storing data on [pushdata.io](https://pushdata.io) immediately, without even registering an account there. Just install this package and write three lines of code, like this:
+
+```python
+import pushdata
+
+pd = pushdata.Client(email="youremail@yourdomain.com", tsname="MyTimeseries")
+pd.send(12345)  # Stores the data point 12345, timestamped with the current date and time
+```
+
+Then go to __https://pushdata.io/youremail@yourdomain.com__ where you will be able to view your timeseries.
+
 ## Usage
 
 ```python
