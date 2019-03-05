@@ -17,7 +17,7 @@ pd = pushdata.Client(email="youremail@yourdomain.com", tsname="MyTimeseries")
 pd.send(12345)  # Stores the data point 12345, timestamped with the current date and time
 ```
 
-Then go to __https://pushdata.io/youremail@yourdomain.com__ where you will be able to view your timeseries.
+After you've run the code and stored at least one data point, go to __https://pushdata.io/youremail@yourdomain.com__ where you will be able to view your timeseries.
 
 ## Usage
 
