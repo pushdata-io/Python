@@ -1,6 +1,6 @@
 # Pushdata Python client library
 
-This library allows you to easily store and retrieve time series data using the online service pushdata.io.
+This library allows you to easily store and retrieve time series data using the online service [pushdata.io](https://pushdata.io).
 
 ## Installation
 
