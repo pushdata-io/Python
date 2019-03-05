@@ -8,9 +8,12 @@ build)
 upload-test)
   python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
   ;;
+upload-prod)
+  python3 -m twine upload --repository-url dist/*
+  ;;
 pip-install-test)
   pip install --upgrade --index-url https://test.pypi.org/simple/ pushdata-io
   ;;
 *)
-  echo "Usage: $0 [build] | [upload-test] [pip-install-test]"
+  echo "Usage: $0 [build] | [upload-test] [upload-prod] [pip-install-test]"
 esac
